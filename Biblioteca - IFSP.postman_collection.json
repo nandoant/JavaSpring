@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "e09782be-f8ea-4d6d-8930-852bf35da1f5",
+		"name": "Biblioteca - IFSP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33651100"
+	},
+	"item": [
+		{
+			"name": "Venda",
+			"item": [
+				{
+					"name": "Listar Vendas",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Venda por ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/vendas/8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vendas",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Venda",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"titulo\": \"Dom Casmurro\",\r\n        \"autor\": \"Machado de Assis\",\r\n        \"editora\": \"Companhia das Letras\",\r\n        \"isbn\": \"9788535911162\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/vendas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vendas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Venda Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 1,\r\n        \"titulo\": \"Dom Casmurro\",\r\n        \"autor\": \"Machado de Assis\",\r\n        \"editora\": \"Companhia das Letras\",\r\n        \"isbn\": \"9788535911162\"\r\n    },\r\n    {\r\n        \"id\": 1,\r\n        \"titulo\": \"Dom Casmurro\",\r\n        \"autor\": \"Machado de Assis\",\r\n        \"editora\": \"Companhia das Letras\",\r\n        \"isbn\": \"9788535911162\"\r\n    }\r\n\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/vendas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"vendas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Livro",
+			"item": [
+				{
+					"name": "Listar Livros",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/livros",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Livro por ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Excluir por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/livros/9788522005017",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros",
+								"9788522005017"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar Livro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"O Senhor dos Anéis\",\r\n    \"autor\": \"J.R.R. Tolkien\",\r\n    \"editora\": \"HarperCollins\",\r\n    \"isbn\": \"9788533613381\",\r\n    \"quantidade\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/livros",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Livro Por ID e enviar o livro no body",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"O Senhor dos Anéis\",\r\n    \"autor\": \"J.R.R. Tolkien\",\r\n    \"editora\": \"HarperCollins\",\r\n    \"isbn\": \"9788533613381\",\r\n    \"quantidade\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/livros/10",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"livros",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
