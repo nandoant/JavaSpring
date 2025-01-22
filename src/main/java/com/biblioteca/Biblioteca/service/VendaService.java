@@ -22,16 +22,20 @@ public class VendaService {
             throw new DadosInvalidosException("Nenhum livro informado para a venda");
         }
 
+        //Conta a quantidade de cada livro por ISBN
         HashMap<String, Integer> quantidades = new HashMap<>();
         for (LivroDto livro : livrosDto) {
             quantidades.put(livro.getIsbn(), quantidades.getOrDefault(livro.getIsbn(), 0) + 1);
         }
 
+        //Verifica se tem estoque suficiente para cada livro
         validarEstoque(quantidades);
         
+        //Cria um record de venda com a data atual
         Venda venda = new Venda(null, new Date(System.currentTimeMillis()), livrosDto);
         venda.setId(vendaDao.salvar(venda));
         
+        //Salva os ItemVenda e atualiza o estoque dos livros
         salvarItensVenda(venda.getId(), quantidades);
         atualizarEstoqueLivros(quantidades, -1);
         
@@ -126,7 +130,10 @@ public class VendaService {
 
     public Venda buscarVendaPorId(Long id) throws SQLException {
         Venda venda = vendaDao.buscarPorId(id);
-        return venda != null ? carregarLivrosDaVenda(venda) : null;
+        if(venda == null)
+        throw new EntidadeNaoEncontrada("Venda não encontrada");
+    
+        return carregarLivrosDaVenda(venda);
     }
 
     public void deletarVenda(Long id) throws SQLException {
