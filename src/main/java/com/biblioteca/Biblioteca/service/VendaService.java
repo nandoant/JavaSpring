@@ -131,7 +131,7 @@ public class VendaService {
     public Venda buscarVendaPorId(Long id) throws SQLException {
         Venda venda = vendaDao.buscarPorId(id);
         if(venda == null)
-        throw new EntidadeNaoEncontrada("Venda não encontrada");
+            throw new EntidadeNaoEncontrada("Venda não encontrada");
     
         return carregarLivrosDaVenda(venda);
     }
@@ -139,8 +139,6 @@ public class VendaService {
     public void deletarVenda(Long id) throws SQLException {
         Venda venda = buscarVendaPorId(id);
         if (venda != null) {
-            HashMap<String, Integer> quantidades = contarQuantidadeLivros(venda.getLivros());
-            atualizarEstoqueLivros(quantidades, 1);
             itemVendaDao.deletarPorIdVenda(id);
             vendaDao.deletar(id);
         }
